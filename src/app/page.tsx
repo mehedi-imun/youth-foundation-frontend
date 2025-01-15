@@ -1,9 +1,11 @@
-import { Button } from "@/components/ui/button";
-
+import { Typography } from "antd";
+import Title from "antd/es/typography/Title";
 export default function Home() {
   return (
-    <>
-      <Button>hellol h </Button>
-    </>
+    <div>
+      <Typography>
+        <Title> thello</Title>
+      </Typography>
+    </div>
   );
 }
