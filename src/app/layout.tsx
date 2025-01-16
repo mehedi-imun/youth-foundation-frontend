@@ -5,8 +5,6 @@ import { ConfigProvider } from "antd";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 // import '@ant-design/v5-patch-for-react-19';
-import LocaleSwitcher from "./components/LocaleSwitcher";
-import Navbar from "./components/shared/Navbar";
 import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +25,6 @@ export async function generateStaticParams() {
 
 export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: "en-US" | "bn-BD" };
@@ -57,11 +54,7 @@ export default function RootLayout({
             },
           }}
         >
-          <AntdRegistry>
-            <Navbar />
-            <LocaleSwitcher currentLocale={params.lang} />
-            {children}
-          </AntdRegistry>
+          <AntdRegistry>{children}</AntdRegistry>
         </ConfigProvider>
       </body>
     </html>

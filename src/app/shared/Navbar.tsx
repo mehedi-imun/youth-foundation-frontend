@@ -13,7 +13,7 @@ import bnBD from "antd/locale/bn_BD";
 import enUS from "antd/locale/en_US";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import logo from "../../../../public/assets/logo.png";
+import logo from "../../../public/assets/logo.png";
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
