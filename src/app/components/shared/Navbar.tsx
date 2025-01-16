@@ -1,8 +1,8 @@
 "use client";
 import {
-  createFromIconfontCN,
   FacebookFilled,
   MailTwoTone,
+  MenuOutlined,
   PhoneTwoTone,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
@@ -19,9 +19,6 @@ import {
 } from "antd";
 import React, { useEffect, useState } from "react";
 type MenuItem = Required<MenuProps>["items"][number];
-const IconFont = createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js",
-});
 
 const items: MenuItem[] = [
   {
@@ -75,7 +72,7 @@ const Navbar: React.FC = () => {
       {/* Top Bar */}
       <Row
         justify="center"
-        style={{ width: "100%", padding: "5px 0", backgroundColor: "white" }}
+        style={{ width: "100%", padding: "10px 5px", backgroundColor: "white" }}
       >
         <Col xs={24} sm={24} md={22} lg={20} xl={20}>
           <Row
@@ -86,7 +83,7 @@ const Navbar: React.FC = () => {
             {isMobile && (
               <Col>
                 <Button type="text" onClick={toggleDrawer}>
-                  ☰
+                  <MenuOutlined style={{ fontSize: "20px" }} />
                 </Button>
               </Col>
             )}
@@ -112,7 +109,7 @@ const Navbar: React.FC = () => {
       {/* Logo and Action Buttons */}
       <Row
         justify="center"
-        style={{ width: "100%", padding: "10px 0", backgroundColor: "white" }}
+        style={{ width: "100%", padding: "10px 5px", backgroundColor: "white" }}
       >
         <Col xs={24} sm={24} md={22} lg={20} xl={20}>
           <Row justify="space-between" align="middle" gutter={16}>
