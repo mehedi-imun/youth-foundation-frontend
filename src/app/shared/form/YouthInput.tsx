@@ -18,7 +18,7 @@ const YouthInput = ({
   placeholder,
 }: TInputProps) => {
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <div >
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (

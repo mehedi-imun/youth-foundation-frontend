@@ -28,52 +28,65 @@ export const donationSchema = z.object({
       z.number().min(1, "Donation Amount is required.").parse(value)
     ),
 });
+
 export default function Donation() {
   const onSubmit = async (data: FieldValues) => {
     console.log(data);
   };
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSelectedDonationType] = useState<string>("");
+
   return (
-    <Card  style={{ marginTop: "50px" }}>
-    <Row justify="center">
-      <Col xs={24} sm={24} md={20} lg={16}>
-        <YouthForm onSubmit={onSubmit} resolver={zodResolver(donationSchema)}>
-          <Row gutter={[16, 16]} align="middle">
-            <Col xs={24} sm={8} md={6}>
-              <YouthSelectWithWatch
-                name="donationType"
-                options={[
-                  { value: "1", label: "General Fund" },
-                  { value: "2", label: "Specific Cause" },
-                ]}
-                placeholder="Select Donation Type"
-                onValueChange={setSelectedDonationType}
-              />
-            </Col>
-            <Col xs={24} sm={8} md={6}>
-              <YouthInput
-                name="emailOrPhone"
-                placeholder="Enter your email or phone"
-                type="text"
-              />
-            </Col>
-            <Col xs={24} sm={8} md={6}>
-              <YouthInput
-                name="amount"
-                placeholder="Enter donation amount"
-                type="number"
-              />
-            </Col>
-            <Col xs={24} sm={8} md={6} style={{ marginBottom:"25px" }}>
-              <Button  size="large" type="primary" htmlType="submit" block>
-                Donate
-              </Button>
-            </Col>
-          </Row>
-        </YouthForm>
-      </Col>
-    </Row>
-  </Card>
+    <div style={{width:"80%", margin:"auto"}}>
+      <Card style={{ marginTop: "50px" }}>
+        <Row justify="center">
+          <Col xs={24}>
+            <YouthForm
+              onSubmit={onSubmit}
+              resolver={zodResolver(donationSchema)}
+            >
+              <Row gutter={[8, 8]}>
+                <Col span={6} xs={24} sm={12} md={8} lg={6}>
+                  <YouthSelectWithWatch
+                    name="donationType"
+                    options={[
+                      { value: "1", label: "General Fund" },
+                      { value: "2", label: "Specific Cause" },
+                    ]}
+                    placeholder="Select Donation Type"
+                    onValueChange={setSelectedDonationType}
+                  />
+                </Col>
+                <Col span={6} xs={24} sm={12} md={8} lg={6}>
+                  <YouthInput
+                    name="emailOrPhone"
+                    placeholder="Enter your email or phone"
+                    type="text"
+                  />
+                </Col>
+                <Col span={6} xs={24} sm={12} md={8} lg={6}>
+                  <YouthInput
+                    name="amount"
+                    placeholder="Enter donation amount"
+                    type="number"
+                  />
+                </Col>
+                <Col span={6} xs={24} sm={12} md={8} lg={6}>
+                  <Button
+                    size="large"
+                    type="primary"
+                    htmlType="submit"
+                    block
+                    style={{ marginBottom: "10px" }}
+                  >
+                    Donate
+                  </Button>
+                </Col>
+              </Row>
+            </YouthForm>
+          </Col>
+        </Row>
+      </Card>
+    </div>
   );
 }

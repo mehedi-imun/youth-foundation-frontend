@@ -39,7 +39,6 @@ const Navbar: React.FC = () => {
   const changeLocale = (e: RadioChangeEvent) => {
     const localeValue = e.target.value;
     setLocal(localeValue);
-
   };
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -60,75 +59,80 @@ const Navbar: React.FC = () => {
   return (
     <Layout style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
       {/* Top Bar */}
-      <Row
-        justify="center"
-        style={{ width: "100%", padding: "10px 5px 0px 5px" }}
-      >
-        <Col xs={24} sm={24} md={22} lg={20} xl={20}>
-          <Row
-            justify={isMobile ? "space-between" : "end"}
-            align="middle"
-            gutter={16}
-          >
-            {isMobile && (
+      <div style={{ width: "80%", margin: "auto" }}>
+        <Row
+          wrap={false}
+          justify="center"
+          style={{ padding: "10px 0px 0px 0px" }}
+        >
+          <Col flex="auto">
+            <Row
+              justify={isMobile ? "space-between" : "end"}
+              align="middle"
+              // gutter={16}
+            >
+              {isMobile && (
+                <Col>
+                  <Button type="text" onClick={toggleDrawer}>
+                    <MenuOutlined style={{ fontSize: "20px" }} />
+                  </Button>
+                </Col>
+              )}
               <Col>
-                <Button type="text" onClick={toggleDrawer}>
-                  <MenuOutlined style={{ fontSize: "20px" }} />
+                <Space>
+                  <MailTwoTone />
+                  <FacebookFilled style={{ color: "#1877F2" }} />
+                  <PhoneTwoTone />
+                  <Radio.Group
+                    size="small"
+                    value={locale}
+                    onChange={changeLocale}
+                  >
+                    <Radio.Button key="bn" value={bnBD}>
+                      বাংলা
+                    </Radio.Button>
+                    <Radio.Button key="en" value={enUS}>
+                      EN
+                    </Radio.Button>
+                  </Radio.Group>
+                </Space>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
+        {/* Logo and Action Buttons */}
+        <Row
+          wrap={false}
+          justify="center"
+          style={{ padding: "10px 0px 0px 0px" }}
+        >
+          <Col flex="auto">
+            <Row justify="space-between" align="middle" >
+              <Col>
+                <Image
+                  alt="youth foundation logo"
+                  width={250}
+                  height={100}
+                  src={logo}
+                ></Image>
+              </Col>
+              <Col style={{ paddingBottom: "10px" }}>
+                <Button
+                  size="large"
+                  type="primary"
+                  style={{ marginRight: "10px" }}
+                >
+                  Donate
+                </Button>
+                <Button size="large" type="primary">
+                  Login
                 </Button>
               </Col>
-            )}
-            <Col>
-              <Space>
-                <MailTwoTone />
-                <FacebookFilled style={{ color: "#1877F2" }} />
-                <PhoneTwoTone />
-                <Radio.Group
-                  size="small"
-                  value={locale}
-                  onChange={changeLocale}
-                >
-                  <Radio.Button key="bn" value={bnBD}>
-                    বাংলা
-                  </Radio.Button>
-                  <Radio.Button key="en" value={enUS}>
-                    EN
-                  </Radio.Button>
-                </Radio.Group>
-                
-              </Space>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-
-      {/* Logo and Action Buttons */}
-      <Row justify="center" style={{ width: "100%", padding: "10px 5px" }}>
-        <Col xs={24} sm={24} md={22} lg={20} xl={20}>
-          <Row justify="space-between" align="middle" gutter={16}>
-            <Col>
-              <Image
-                alt="youth foundation logo"
-                width={300}
-                height={100}
-                src={logo}
-              ></Image>
-            </Col>
-            <Col>
-              <Button
-                size="large"
-                type="primary"
-                style={{ marginRight: "10px" }}
-              >
-                Donate
-              </Button>
-              <Button size="large" type="primary">
-                Login
-              </Button>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-
+            </Row>
+          </Col>
+        </Row>
+      </div>
       {/* Full Menu */}
       {!isMobile && (
         <Menu
