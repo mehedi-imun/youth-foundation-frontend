@@ -7,6 +7,10 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Button, Col, Drawer, Layout, Menu, Radio, Row, Space } from "antd";
+import { Locale } from "antd/es/locale";
+import { RadioChangeEvent } from "antd/lib";
+import bnBD from "antd/locale/bn_BD";
+import enUS from "antd/locale/en_US";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import logo from "../../../../public/assets/logo.png";
@@ -15,34 +19,28 @@ type MenuItem = Required<MenuProps>["items"][number];
 const items: MenuItem[] = [
   {
     key: "alipay",
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation One
-      </a>
-    ),
+    label: <a href="#">Home</a>,
   },
   {
     key: "alipay2",
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Two
-      </a>
-    ),
+    label: <a href="#">About</a>,
   },
   {
     key: "alipay3",
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Three
-      </a>
-    ),
+    label: <a href="#">Contact</a>,
   },
 ];
-
 const Navbar: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [position, setPosition] = useState<"start" | "end">("end");
+
+  const [locale, setLocal] = useState<Locale>(enUS);
+
+  const changeLocale = (e: RadioChangeEvent) => {
+    const localeValue = e.target.value;
+    setLocal(localeValue);
+
+  };
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
@@ -64,7 +62,7 @@ const Navbar: React.FC = () => {
       {/* Top Bar */}
       <Row
         justify="center"
-        style={{ width: "100%", padding: "10px 5px", backgroundColor: "white" }}
+        style={{ width: "100%", padding: "10px 5px 0px 5px" }}
       >
         <Col xs={24} sm={24} md={22} lg={20} xl={20}>
           <Row
@@ -86,12 +84,17 @@ const Navbar: React.FC = () => {
                 <PhoneTwoTone />
                 <Radio.Group
                   size="small"
-                  value={position}
-                  onChange={(e) => setPosition(e.target.value)}
+                  value={locale}
+                  onChange={changeLocale}
                 >
-                  <Radio.Button value="start">বাংলা</Radio.Button>
-                  <Radio.Button value="end">ENG</Radio.Button>
+                  <Radio.Button key="bn" value={bnBD}>
+                    বাংলা
+                  </Radio.Button>
+                  <Radio.Button key="en" value={enUS}>
+                    EN
+                  </Radio.Button>
                 </Radio.Group>
+                
               </Space>
             </Col>
           </Row>
@@ -99,10 +102,7 @@ const Navbar: React.FC = () => {
       </Row>
 
       {/* Logo and Action Buttons */}
-      <Row
-        justify="center"
-        style={{ width: "100%", padding: "10px 5px", backgroundColor: "white" }}
-      >
+      <Row justify="center" style={{ width: "100%", padding: "10px 5px" }}>
         <Col xs={24} sm={24} md={22} lg={20} xl={20}>
           <Row justify="space-between" align="middle" gutter={16}>
             <Col>
@@ -114,10 +114,16 @@ const Navbar: React.FC = () => {
               ></Image>
             </Col>
             <Col>
-              <Button type="primary" style={{ marginRight: "10px" }}>
+              <Button
+                size="large"
+                type="primary"
+                style={{ marginRight: "10px" }}
+              >
                 Donate
               </Button>
-              <Button type="primary">Login</Button>
+              <Button size="large" type="primary">
+                Login
+              </Button>
             </Col>
           </Row>
         </Col>
@@ -144,17 +150,6 @@ const Navbar: React.FC = () => {
         open={isDrawerOpen}
       >
         <Menu mode="vertical" items={items} />
-        <div style={{ marginTop: "20px" }}>
-          <Button
-            type="primary"
-            style={{ marginBottom: "10px", width: "100%" }}
-          >
-            Donate
-          </Button>
-          <Button type="primary" style={{ width: "100%" }}>
-            Login
-          </Button>
-        </div>
       </Drawer>
     </Layout>
   );
