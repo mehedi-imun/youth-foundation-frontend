@@ -72,17 +72,20 @@ const Navbar: React.FC = () => {
               // gutter={16}
             >
               {isMobile && (
-                <Col>
-                  <Button type="text" onClick={toggleDrawer}>
-                    <MenuOutlined style={{ fontSize: "20px" }} />
-                  </Button>
+                <Col style={{ padding: "0px" }}>
+                  <MenuOutlined
+                    onClick={toggleDrawer}
+                    style={{ fontSize: "20px" }}
+                  />
                 </Col>
               )}
               <Col>
-                <Space>
-                  <MailTwoTone />
-                  <FacebookFilled style={{ color: "#1877F2" }} />
-                  <PhoneTwoTone />
+                <Space size="middle">
+                  <MailTwoTone style={{ fontSize: "20px" }} />
+                  <FacebookFilled
+                    style={{ color: "#1877F2", fontSize: "20px" }}
+                  />
+                  <PhoneTwoTone style={{ fontSize: "20px" }} />
                   <Radio.Group
                     size="small"
                     value={locale}
@@ -108,7 +111,7 @@ const Navbar: React.FC = () => {
           style={{ padding: "10px 0px 0px 0px" }}
         >
           <Col flex="auto">
-            <Row justify="space-between" align="middle" >
+            <Row justify="space-between" align="middle">
               <Col>
                 <Image
                   alt="youth foundation logo"
