@@ -6,18 +6,10 @@ import {
   PhoneTwoTone,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import {
-  Button,
-  Col,
-  Drawer,
-  Layout,
-  Menu,
-  Radio,
-  Row,
-  Space,
-  Typography,
-} from "antd";
+import { Button, Col, Drawer, Layout, Menu, Radio, Row, Space } from "antd";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import logo from "../../../../public/assets/logo.png";
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
@@ -114,9 +106,12 @@ const Navbar: React.FC = () => {
         <Col xs={24} sm={24} md={22} lg={20} xl={20}>
           <Row justify="space-between" align="middle" gutter={16}>
             <Col>
-              <Typography.Title level={4} style={{ margin: 0 }}>
-                Logo
-              </Typography.Title>
+              <Image
+                alt="youth foundation logo"
+                width={300}
+                height={100}
+                src={logo}
+              ></Image>
             </Col>
             <Col>
               <Button type="primary" style={{ marginRight: "10px" }}>
