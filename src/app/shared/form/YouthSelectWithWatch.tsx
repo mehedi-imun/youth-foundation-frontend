@@ -1,3 +1,4 @@
+"use client";
 import { Form, Select, Typography } from "antd";
 import { useEffect } from "react";
 import { Controller, useFormContext, useWatch } from "react-hook-form";

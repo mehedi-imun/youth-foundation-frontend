@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <Layout style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
+    <Layout style={{ position: "sticky", top: 0, zIndex: 50, width: "100%" }}>
       {/* Top Bar */}
       <div style={{ width: "80%", margin: "auto" }}>
         <Row
