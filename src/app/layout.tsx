@@ -51,6 +51,9 @@ export default function RootLayout({
                 itemSelectedColor: "rgb(47, 74, 173)",
                 itemSelectedBg: "rgb(249,249,249)",
               },
+              Typography: {
+                colorTextHeading: "#67bc45",
+              },
             },
           }}
         >

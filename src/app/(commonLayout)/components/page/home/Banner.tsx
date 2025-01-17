@@ -12,8 +12,8 @@ export default function Banner() {
 
   return (
     <Layout>
-      <div style={{ width: "80%", margin: "auto", marginTop: "10px", marginBottom: "10px" }}>
-        <Carousel adaptiveHeight autoplay>
+      <div style={{ width: "80%", margin: "auto", marginTop: "10px", marginBottom: "50px",  }}>
+        <Carousel  adaptiveHeight autoplay>
           {images.map((image, index) => (
             <div
               key={index}
