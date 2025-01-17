@@ -11,7 +11,7 @@ export default function Banner() {
   const images = [img1, img2, img3, img4, img5, img6];
 
   return (
-    <div style={{ width: "80%", margin: "auto", marginTop: "50px", }}>
+    <div style={{ width: "80%", margin: "auto", marginTop: "10px", }}>
       <Carousel adaptiveHeight autoplay>
         {images.map((image, index) => (
           <div

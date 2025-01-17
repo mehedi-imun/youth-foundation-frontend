@@ -35,9 +35,9 @@ const YouthSelectWithWatch = ({
     <Controller
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <Form.Item label={label}>
+        <Form.Item style={{ margin: "0px" }} label={label}>
           <Select
-          status={error ? "error" : ""}
+            status={error ? "error" : ""}
             mode={mode}
             style={{ width: "100%" }}
             {...field}
@@ -46,7 +46,15 @@ const YouthSelectWithWatch = ({
             disabled={disabled}
             placeholder={placeholder}
           />
-          {error && <Typography style={{ color: "red" }}>{error.message}</Typography>}
+          <Typography
+            style={{
+              color: "red",
+              minHeight: "20px",
+              fontSize: "12px",
+            }}
+          >
+            {error?.message || ""}
+          </Typography>
         </Form.Item>
       )}
     />

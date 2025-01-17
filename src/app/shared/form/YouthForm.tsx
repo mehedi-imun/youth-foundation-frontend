@@ -18,6 +18,7 @@ type TFormConfig = {
 type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
+  layout?: "vertical" | "horizontal" | "inline";
 } & TFormConfig;
 
 const YouthForm = ({
@@ -25,6 +26,7 @@ const YouthForm = ({
   children,
   defaultValues,
   resolver,
+  layout,
 }: TFormProps) => {
   
   const formConfig: TFormConfig = {
@@ -48,7 +50,7 @@ const YouthForm = ({
 
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
+      <Form layout={layout}  onFinish={methods.handleSubmit(submit)}>
         {children}
       </Form>
     </FormProvider>

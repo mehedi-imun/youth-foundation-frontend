@@ -113,12 +113,7 @@ const Navbar: React.FC = () => {
           <Col flex="auto">
             <Row justify="space-between" align="middle">
               <Col>
-                <Image
-                  alt="youth foundation logo"
-                  width={250}
-                  height={100}
-                  src={logo}
-                ></Image>
+                <Image alt="youth foundation logo" src={logo}></Image>
               </Col>
               <Col style={{ paddingBottom: "10px" }}>
                 <Button

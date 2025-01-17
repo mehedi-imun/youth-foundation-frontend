@@ -22,7 +22,7 @@ const YouthSelect = ({
     <Controller
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <Form.Item label={label}>
+        <Form.Item st label={label}>
           <Select
             mode={mode}
             style={{ width: "100%" }}

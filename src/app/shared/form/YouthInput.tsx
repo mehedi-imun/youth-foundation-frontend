@@ -18,11 +18,11 @@ const YouthInput = ({
   placeholder,
 }: TInputProps) => {
   return (
-    <div >
+    <div>
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (
-          <Form.Item label={label}>
+          <Form.Item style={{ margin: "0px" }} label={label}>
             <Input
               status={error ? "error" : ""}
               {...field}
@@ -32,9 +32,15 @@ const YouthInput = ({
               disabled={disabled}
               placeholder={placeholder}
             />
-            {error && (
-              <Typography style={{ color: "red" }}>{error.message}</Typography>
-            )}
+            <Typography
+              style={{
+                color: "red",
+                minHeight: "20px", 
+                fontSize: "12px",
+              }}
+            >
+              {error?.message || ""}
+            </Typography>
           </Form.Item>
         )}
       />
