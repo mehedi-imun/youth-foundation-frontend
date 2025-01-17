@@ -6,9 +6,9 @@ import ytRound from "../../../../../../public/aboutus/ytRound.png";
 export default function AboutUsSection() {
   return (
     <div style={{ width: "80%", margin: "auto" }}>
-      <Row wrap style={{ padding: "50px 0px" }}>
+      <Row  align="middle"  wrap style={{ padding: "50px 0px" }}>
         {/* Image Section */}
-        <Col xs={24} sm={24} md={12} lg={12} style={{ overflow: "hidden" }}>
+        <Col  xs={24} sm={24} md={12} lg={12} style={{ overflow: "hidden" }}>
           <Image
             style={{
               maxWidth: "65%",
