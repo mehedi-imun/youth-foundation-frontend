@@ -39,7 +39,7 @@ export default function Donation() {
   return (
     <Layout>
       <div style={{ width: "80%", margin: "auto" }}>
-        <Card style={{ marginTop: "10px" }}>
+        <Card type="inner" style={{ marginTop: "10px" }}>
           <Row
             style={{
               marginTop: "20px",

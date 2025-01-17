@@ -105,11 +105,7 @@ const Navbar: React.FC = () => {
         </Row>
 
         {/* Logo and Action Buttons */}
-        <Row
-          wrap={false}
-          justify="center"
-          style={{ padding: "10px 0px 0px 0px" }}
-        >
+        <Row wrap={false} justify="center">
           <Col flex="auto">
             <Row justify="space-between" align="middle">
               <Col>
