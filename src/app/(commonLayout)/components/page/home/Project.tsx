@@ -22,44 +22,44 @@ const gradientColors = [
 export default function Project({ data }: ProjectProps) {
   return (
     <Layout>
-     
-        <Row
-          style={{ width: "80%", margin: "auto", padding: "50px 0px" }}
-          gutter={[16, 16]}
-        >
-          {data.map((project, index) => {
-            // Select a gradient color for each card
-            const randomGradient =
-              gradientColors[index % gradientColors.length];
+      <Row
+        justify="center"
+        style={{ width: "80%", margin: "auto", padding: "50px 0px" }}
+        gutter={[16, 16]}
+      >
+        {data.map((project, index) => {
+          // Select a gradient color for each card
+          const randomGradient = gradientColors[index % gradientColors.length];
 
-            return (
-              <Col  style={{padding:"0"}}  key={index} xs={24} sm={12} md={12} lg={8}>
-                <Card
-                  // bordered={false}
-                  style={{
-                    background: randomGradient,
+          return (
+            <Col key={index} xs={24} sm={12} md={12} lg={8}>
+              <Card
+                // bordered={false}
+                style={{
+                  background: randomGradient,
+                }}
+              >
+                <Typography.Title style={{ color: "white" }} level={1}>
+                  {project.title}
+                </Typography.Title>
+                <Typography.Paragraph
+                  style={{ color: "white" }}
+                  ellipsis={{
+                    rows: 5, // Set the number of lines after which ellipsis appears
+                    expandable: true, // Allow expanding the text on click
+                    symbol: "see more", // Customize the symbol when expanded
                   }}
                 >
-                  <Typography.Title style={{ color: "white" }} level={1}>
-                    {project.title}
-                  </Typography.Title>
-                  <Typography.Paragraph
-                    style={{ color: "white",}}
-                    ellipsis={{
-                      rows: 5, // Set the number of lines after which ellipsis appears
-                      expandable: true, // Allow expanding the text on click
-                      symbol: "see more", // Customize the symbol when expanded
-                    }}
-                  >
-                    {project.description}
-                  </Typography.Paragraph>
-                </Card>
-              </Col>
-            );
-          })}
-         <div> <Button  type="primary">learn more</Button></div>
-        </Row>
-        
+                  {project.description}
+                </Typography.Paragraph>
+              </Card>
+            </Col>
+          );
+        })}
+        <Button style={{ marginTop: "20px" }} type="primary">
+          learn more
+        </Button>
+      </Row>
     </Layout>
   );
 }
