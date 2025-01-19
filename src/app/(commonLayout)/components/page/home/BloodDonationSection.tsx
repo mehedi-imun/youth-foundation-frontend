@@ -12,7 +12,7 @@ export default function BloodDonationSection() {
         <Row align="middle" wrap style={{ padding: "50px 0px" }}>
           {/* Text and Button Section */}
           <Col sm={24} md={12} lg={12}>
-            <Typography.Title type="danger" level={1}>
+            <Typography.Title  level={1}>
               Blood Donation
             </Typography.Title>
             <Divider orientation="left">Why Youth Foundation?</Divider>
@@ -50,7 +50,7 @@ export default function BloodDonationSection() {
             <Image
               style={{
                 maxWidth: "65%",
-               borderRadius:"5%"
+               borderRadius:"10px"
               }}
               alt="youth foundation"
               src={ytBlood}
